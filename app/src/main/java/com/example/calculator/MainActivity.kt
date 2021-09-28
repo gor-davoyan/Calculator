@@ -100,31 +100,14 @@ class MainActivity : AppCompatActivity() {
     private fun operatorEvent(view: View) {
         isNewOp = true
         oldNumber = editText?.text.toString()
-        when ((view as Button).id) {
-            buttonMultiplication?.id -> op = "*"
-            buttonDivision?.id -> op = "/"
-            buttonSubtraction?.id -> op = "-"
-            buttonAddition?.id -> op = "+"
-        }
+        op = view.tag.toString()
     }
 
     private fun numberEvent(view: View) {
         if (isNewOp) editText?.setText("")
         isNewOp = false
         var text = editText?.text.toString()
-        when ((view as Button).id) {
-            button1?.id -> text += "1"
-            button2?.id -> text += "2"
-            button3?.id -> text += "3"
-            button4?.id -> text += "4"
-            button5?.id -> text += "5"
-            button6?.id -> text += "6"
-            button7?.id -> text += "7"
-            button8?.id -> text += "8"
-            button9?.id -> text += "9"
-            button0?.id -> text += "0"
-            buttonDot?.id -> text += "."
-        }
+        text += view.tag.toString()
         editText?.setText(text)
     }
 }
